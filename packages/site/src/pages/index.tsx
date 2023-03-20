@@ -129,7 +129,7 @@ const Index = () => {
   return (
     <Container>
       <Heading>
-        Welcome to <Span>template-snap</Span>
+        Welcome to <Span>Plume</Span>
       </Heading>
       <Subtitle>
         Get started by editing <code>src/index.ts</code>
@@ -185,9 +185,9 @@ const Index = () => {
         )}
         <Card
           content={{
-            title: 'Send Hello message',
+            title: 'Send Plume message',
             description:
-              'Display a custom message within a confirmation screen in MetaMask.',
+              'Display a confirmation message for generating a message plume and other prover inputs.',
             button: (
               <SendHelloButton
                 onClick={handleSendHelloClick}

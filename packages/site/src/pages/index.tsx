@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { MetamaskActions, MetaMaskContext } from '../hooks';
 import {
   connectSnap,
   getSnap,
-  sendHello,
+  sendPlume,
   shouldDisplayReconnectButton,
 } from '../utils';
 import {
@@ -51,6 +51,22 @@ const Subtitle = styled.p`
   }
 `;
 
+const InputField = styled.textarea`
+  margin-top: 2.4rem;
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  padding: 1rem 1.5rem;
+  background-color: ${({ theme }) => theme.colors.card.default};
+  color: ${({ theme }) => theme.colors.text.default};
+  font-family: ${(props) => props.theme.fonts.default};
+  ${({ theme }) => theme.mediaQueries.small} {
+    font-size: ${({ theme }) => theme.fontSizes.text};
+  }
+  border: 1px solid ${({ theme }) => theme.colors.border.default};
+  border-radius: 1.5rem;
+  box-shadow: ${({ theme }) => theme.shadows.default};
+  filter: opacity(${({ disabled }) => (disabled ? '.4' : '1')});
+`;
+
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -60,25 +76,6 @@ const CardContainer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 1.5rem;
-`;
-
-const Notice = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.alternative};
-  border: 1px solid ${({ theme }) => theme.colors.border.default};
-  color: ${({ theme }) => theme.colors.text.alternative};
-  border-radius: ${({ theme }) => theme.radii.default};
-  padding: 2.4rem;
-  margin-top: 2.4rem;
-  max-width: 60rem;
-  width: 100%;
-
-  & > * {
-    margin: 0;
-  }
-  ${({ theme }) => theme.mediaQueries.small} {
-    margin-top: 1.2rem;
-    padding: 1.6rem;
-  }
 `;
 
 const ErrorMessage = styled.div`
@@ -101,6 +98,7 @@ const ErrorMessage = styled.div`
 
 const Index = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
+  const [message, setMessage] = useState('');
 
   const handleConnectClick = async () => {
     try {
@@ -117,9 +115,9 @@ const Index = () => {
     }
   };
 
-  const handleSendHelloClick = async () => {
+  const handleConfirmClick = async () => {
     try {
-      await sendHello();
+      await sendPlume(message);
     } catch (e) {
       console.error(e);
       dispatch({ type: MetamaskActions.SetError, payload: e });
@@ -132,8 +130,13 @@ const Index = () => {
         Welcome to <Span>Plume</Span>
       </Heading>
       <Subtitle>
-        Get started by editing <code>src/index.ts</code>
+        Deterministic verifiable ECDSA signatures that maintain anonymity.
       </Subtitle>
+      <InputField
+        placeholder="Message (optional)"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
       <CardContainer>
         {state.error && (
           <ErrorMessage>
@@ -185,12 +188,12 @@ const Index = () => {
         )}
         <Card
           content={{
-            title: 'Send Plume message',
+            title: 'Invoke',
             description:
-              'Display a confirmation message for generating a message plume and other prover inputs.',
+              'Display a dialog displaying the plume and other prover inputs signed with your connected account for a given message.',
             button: (
               <SendHelloButton
-                onClick={handleSendHelloClick}
+                onClick={handleConfirmClick}
                 disabled={!state.installedSnap}
               />
             ),
@@ -202,14 +205,6 @@ const Index = () => {
             !shouldDisplayReconnectButton(state.installedSnap)
           }
         />
-        <Notice>
-          <p>
-            Please note that the <b>snap.manifest.json</b> and{' '}
-            <b>package.json</b> must be located in the server root directory and
-            the bundle must be hosted at the location specified by the location
-            field.
-          </p>
-        </Notice>
       </CardContainer>
     </Container>
   );

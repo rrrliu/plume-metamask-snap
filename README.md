@@ -3,10 +3,9 @@
 ## TODO
 
 - [x] Initial proof of concept
-- [ ] Code and UI cleanup
+- [x] Code and UI cleanup
   - [x] Copy updated
-  - [ ] Plume for custom messages
-  - [ ] Documentation
+  - [x] Plume for custom messages
 - [ ] Gatsby app deployed
 - [ ] Published to npm
 

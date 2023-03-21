@@ -22,7 +22,6 @@ export const connectSnap = async (
   snapId: string = defaultSnapOrigin,
   params: Record<'version' | string, unknown> = {},
 ) => {
-  console.log({ params });
   await window.ethereum.request({
     method: 'wallet_requestSnaps',
     params: {
@@ -55,10 +54,13 @@ export const getSnap = async (version?: string): Promise<Snap | undefined> => {
  * Invoke the "hello" method from the example snap.
  */
 
-export const sendHello = async () => {
+export const sendPlume = async (message: string) => {
   await window.ethereum.request({
     method: 'wallet_invokeSnap',
-    params: { snapId: defaultSnapOrigin, request: { method: 'hello' } },
+    params: {
+      snapId: defaultSnapOrigin,
+      request: { method: 'hello', params: { message } },
+    },
   });
 };
 

@@ -51,7 +51,7 @@ export const getSnap = async (version?: string): Promise<Snap | undefined> => {
 };
 
 /**
- * Invoke the "hello" method from the example snap.
+ * Invoke the "plume" method from the example snap.
  */
 
 export const sendPlume = async (message: string) => {
@@ -59,7 +59,7 @@ export const sendPlume = async (message: string) => {
     method: 'wallet_invokeSnap',
     params: {
       snapId: defaultSnapOrigin,
-      request: { method: 'hello', params: { message } },
+      request: { method: 'plume', params: { message } },
     },
   });
 };

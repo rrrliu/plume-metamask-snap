@@ -1,6 +1,6 @@
-# TypeScript Example Snap
+# Plume Snap
 
-This Snap demonstrates how to develop a Snap with TypeScript.
+This Snap demonstrates deterministically signing a message, i.e. [Plume](https://github.com/zk-nullifier-sig/zk-nullifier-sig/).
 
 ## Notes
 

@@ -11,7 +11,7 @@ import {
   ConnectButton,
   InstallFlaskButton,
   ReconnectButton,
-  SendHelloButton,
+  SendPlumeButton,
   Card,
 } from '../components';
 
@@ -192,7 +192,7 @@ const Index = () => {
             description:
               'Display a dialog displaying the plume and other prover inputs signed with your connected account for a given message.',
             button: (
-              <SendHelloButton
+              <SendPlumeButton
                 onClick={handleConfirmClick}
                 disabled={!state.installedSnap}
               />

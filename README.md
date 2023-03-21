@@ -1,14 +1,5 @@
 # Plume MetaMask Snap
 
-## TODO
-
-- [x] Initial proof of concept
-- [x] Code and UI cleanup
-  - [x] Copy updated
-  - [x] Plume for custom messages
-- [ ] Gatsby app deployed
-- [ ] Published to npm
-
 ## Getting Started
 
 Clone the repository and setup the development environment:

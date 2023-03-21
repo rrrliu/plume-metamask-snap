@@ -1,13 +1,13 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example Snap",
+  "description": "A snap for accounts to easily generate a Plume",
+  "proposedName": "Plume Snap",
   "repository": {
     "type": "git",
     "url": "https://github.com/MetaMask/template-snap-monorepo.git"
   },
   "source": {
-    "shasum": "9Mz6AbT0yG+l5u9/kwcrXHDzHa920jTJrH99Aaaivno=",
+    "shasum": "VpYJ8FKePUlTyv8qvGvR7TK6MlfA+bWcrYC1SwrNNpE=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

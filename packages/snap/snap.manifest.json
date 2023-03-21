@@ -4,7 +4,7 @@
   "proposedName": "Plume Snap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/rrrliu/plume-metamask-snap.get"
   },
   "source": {
     "shasum": "VpYJ8FKePUlTyv8qvGvR7TK6MlfA+bWcrYC1SwrNNpE=",
@@ -12,7 +12,7 @@
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/icon.svg",
-        "packageName": "snap",
+        "packageName": "plume-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }

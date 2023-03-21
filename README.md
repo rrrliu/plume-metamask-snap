@@ -18,7 +18,7 @@ Run `yarn lint` to run the linter, or run `yarn lint:fix` to run the linter and 
 
 ### Releasing & Publishing
 
-TBD
+The frontend is deployed with Vercel to [plume-snap.vercel.app](https://plume-snap.vercel.app/). To deploy the Gatsby app, run the required CLI commands (Vercel, Netlify, GitHub pages) to deploy the static site in `/packages/site`.
 
 ## Notes
 
